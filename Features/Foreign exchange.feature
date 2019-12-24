@@ -1,4 +1,5 @@
 ﻿Feature: Testing api from https://exchangeratesapi.io/
+ 
 @VeryFirstTest
 Scenario: Get latest foreign exchange reference rates
 	Given I have an API client 
