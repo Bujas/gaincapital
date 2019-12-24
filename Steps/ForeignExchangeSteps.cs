@@ -6,22 +6,27 @@ namespace Gaincapital_v1
     [Binding]
     public class ForeignExchangeSteps
     {
-        [Given(@"I have a API client")]
-        public void GivenIHaveAAPIClient()
+        static LastesDto lastest;
+
+        [Given(@"I have an API client")]
+        public void GivenIHaveAnAPIClient()
         {
-            ScenarioContext.Current.Pending();
+            Console.Write("Hello world, welcome to step");
+            Console.Write(Environment.NewLine); 
         }
-        
+
         [When(@"I ask about lastes foreign exchange reference rates\.")]
-        public void WhenIAskAboutLastesForeignExchangeReferenceRates_()
+        public async void WhenIAskAboutLastesForeignExchangeReferenceRates_()
         {
-            ScenarioContext.Current.Pending();
+             lastest = await ExchangeratesapiClient.GetLastesForeignExchange();
         }
-        
+
+
         [Then(@"I should have latest foreign exchange reference rates")]
         public void ThenIShouldHaveLatestForeignExchangeReferenceRates()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsNotNull(lastest);
         }
+
     }
 }
